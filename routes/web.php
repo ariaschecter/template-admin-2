@@ -17,17 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->name('admin.')->middleware('language')->group(function () {
     Route::controller(AdminController::class)->group(function () {
+        Route::get('/', fn()=>view('index'))->name('index');
         Route::get('log', 'log')->name('log');
         Route::get('component', 'component')->name('component');
         Route::get('lang/{lang}', 'lang')->name('lang');
     });
 });
 
-Route::group(['prefix' => '/', 'middleware'=>'auth'], function () {
-    Route::get('/', fn()=>view('index'))->name('index');
-    Route::get('/', fn()=>view('index'))->name('any');
-    Route::get('/{first}/{second}', fn()=>view('index'))->name('second');
-});
+Route::get('/', fn()=>view('index'))->name('index');
+Route::get('/', fn()=>view('index'))->name('any');
+Route::get('/{first}/{second}', fn()=>view('index'))->name('second');
 
 
 
