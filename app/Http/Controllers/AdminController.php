@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
 
     public function store(Request $request) {
-        dd($request->option);
+        dd($request);
         $request->validate([
             'acielana_arlana' => 'required',
             'email' => 'required',

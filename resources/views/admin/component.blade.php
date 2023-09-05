@@ -1,5 +1,15 @@
 @extends('layouts.vertical', ['title' => __('Dashboard'), 'sub_title' => 'Menu', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
+@section('css')
+    @vite(['
+    node_modules/nice-select2/dist/css/nice-select2.css',
+    'node_modules/flatpickr/dist/flatpickr.min.css',
+    'node_modules/@simonwep/pickr/dist/themes/classic.min.css',
+    'node_modules/@simonwep/pickr/dist/themes/monolith.min.css',
+    'node_modules/@simonwep/pickr/dist/themes/nano.min.css',
+    ])
+@endsection
+
 @section('content')
 <div class="flex flex-col gap-6">
 	<div class="card">
@@ -44,16 +54,38 @@
 
                 <form action="" method="post">
                     @csrf
-                    <x-form.input name="acielana_arlana"></x-form.input>
+                    <x-form.picker name="basic" type="basic" />
+                    <x-form.picker name="humanfd" type="humanfd" />
+                    <x-form.picker name="datetime" type="datetime" />
+                    <x-form.picker name="multiple" type="multiple" />
+                    <x-form.picker name="range" type="range" />
+                    <x-form.picker name="timepicker" type="timepicker" />
+                    {{-- <x-form.input name="acielana_arlana"></x-form.input>
                     <x-form.input name="email" type="email"></x-form.input>
                     <x-form.input name="password" type="password"></x-form.input>
                     <x-form.input name="date" type="date"></x-form.input>
                     <x-form.input name="month" type="month"></x-form.input>
                     <x-form.input name="time" type="time"></x-form.input>
                     <x-form.input name="week" type="week"></x-form.input>
-                    <x-form.input name="color" type="color"></x-form.input>
+                    <x-form.input name="color" type="color"></x-form.input> --}}
 
-                    <div>
+                    {{-- <x-form.label name="Multiple" />
+                    <x-form.select.multiple name="array[]">
+                        <option value="1">ahskdbsad</option>
+                        <option value="2">aria</option>
+                        <option value="3">maulana</option>
+                        <option value="4">mahendra</option>
+                    </x-form.select.multiple>
+
+                    <x-form.label name="Single" />
+                    <x-form.select.search name="single">
+                        <option value="1">ahskdbsad</option>
+                        <option value="2">aria</option>
+                        <option value="3">maulana</option>
+                        <option value="4">mahendra</option>
+                    </x-form.select.search> --}}
+
+                    {{-- <div>
                         <label for="option" class="text-gray-800 text-sm font-medium inline-block mb-2">Input Select</label>
                         <select class="form-select" multiple id="option" name="option[]">
                             <option value="1">1</option>
@@ -62,25 +94,11 @@
                             <option value="4">4</option>
                             <option value="5">5</option>
                         </select>
-                    </div>
+                    </div> --}}
 
                     <button type="submit">Submit</button>
 
                 </form>
-
-
-
-				<div>
-					<label for="example-multiselect" class="text-gray-800 text-sm font-medium inline-block mb-2">Multiple
-						                                        Select</label>
-					<select id="example-multiselect" multiple class="form-input">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
 			</div>
 
 		</div>
@@ -218,180 +236,6 @@
 					</div>
 				</div>
 			</div>
-
-			<div id="FormInputGroupHtml" class="hidden w-full overflow-hidden transition-[height] duration-300">
-				<pre class="language-html h-56">
-                    <code>
-                        &lt;div class=&quot;grid lg:grid-cols-3 gap-6&quot;&gt;
-                            &lt;div class=&quot;mb-5&quot;&gt;
-                                &lt;div class=&quot;flex&quot;&gt;
-                                    &lt;div class=&quot;inline-flex items-center px-4 rounded-s border border-e-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        @
-                                    &lt;/div&gt;
-                                    &lt;input type=&quot;text&quot; placeholder=&quot;Username&quot; class=&quot;form-input ltr:rounded-l-none rtl:rounded-r-none&quot; /&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;mb-5&quot;&gt;
-                                &lt;div class=&quot;flex&quot;&gt;
-                                    &lt;input type=&quot;text&quot; placeholder=&quot;Recipient's username&quot; class=&quot;form-input ltr:rounded-r-none rtl:rounded-l-none&quot; /&gt;
-                                    &lt;div class=&quot;inline-flex items-center px-4 rounded-e border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        @example.com
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                            &lt;div class=&quot;mb-5&quot;&gt;
-                                &lt;div class=&quot;flex&quot;&gt;
-                                    &lt;div class=&quot;inline-flex items-center px-4 rounded-s border border-e-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        $
-                                    &lt;/div&gt;
-                                    &lt;input type=&quot;text&quot; placeholder=&quot;&quot; class=&quot;form-input rounded-none&quot; /&gt;
-                                    &lt;div class=&quot;inline-flex items-center px-4 rounded-e border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        .00
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm -space-x-px&quot;&gt;
-                                    &lt;span class=&quot;px-4 inline-flex items-center rounded-s border border-gray-200 bg-gray-50 text-sm text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;Default&lt;/span&gt;
-                                    &lt;input type=&quot;text&quot; class=&quot;form-input rounded-s-none&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;div class=&quot;sm:flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;input type=&quot;text&quot; class=&quot;form-input rounded-e-none&quot;&gt;
-                                    &lt;span class=&quot;py-2.5 px-4 inline-flex items-center min-w-fit w-full border border-gray-200 bg-gray-50 text-sm text-gray-500 -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:w-auto sm:first:rounded-l-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-tr-none sm:last:rounded-bl-none sm:last:rounded-r-lg dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        &lt;svg class=&quot;hidden sm:block h-4 w-4 text-gray-400&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
-                                            &lt;path fill-rule=&quot;evenodd&quot; d=&quot;M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z&quot;&gt;
-                                        &lt;/svg&gt;
-                                        &lt;svg class=&quot;sm:hidden mx-auto h-4 w-4 text-gray-400&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
-                                            &lt;path fill-rule=&quot;evenodd&quot; d=&quot;M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z&quot;&gt;
-                                        &lt;/svg&gt;
-                                    &lt;/span&gt;
-                                    &lt;input type=&quot;text&quot; class=&quot;form-input rounded-s-none&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;div class=&quot;sm:flex rounded-md shadow-sm&quot;&gt;
-                                &lt;input type=&quot;text&quot; class=&quot;form-input rounded-e-none&quot;&gt;
-                                &lt;input type=&quot;text&quot; class=&quot;form-input rounded-s-none&quot;&gt;
-                                &lt;span class=&quot;inline-flex items-center whitespace-nowrap px-4 rounded-e border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;First and last name&lt;/span&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Email Address&lt;/label&gt;
-                                &lt;div class=&quot;relative&quot;&gt;
-                                    &lt;input type=&quot;email&quot; id=&quot;leading-icon&quot; name=&quot;leading-icon&quot; class=&quot;form-input ps-11&quot; placeholder=&quot;you@site.com&quot;&gt;
-                                    &lt;div class=&quot;absolute inset-y-0 start-4 flex items-center z-20&quot;&gt;
-                                        &lt;i class=&quot;mgc_mail_line text-lg text-gray-400&quot;&gt;&lt;/i&gt;
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;relative&quot;&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;input-with-leading-and-trailing-icon&quot; name=&quot;input-with-leading-and-trailing-icon&quot; class=&quot;form-input ps-11 pe-14&quot; placeholder=&quot;0.00&quot;&gt;
-                                    &lt;div class=&quot;absolute inset-y-0 start-4 flex items-center pointer-events-none z-20&quot;&gt;
-                                        &lt;span class=&quot;text-gray-500&quot;&gt;$&lt;/span&gt;
-                                    &lt;/div&gt;
-                                    &lt;div class=&quot;absolute inset-y-0 end-4 flex items-center pointer-events-none z-20&quot;&gt;
-                                        &lt;span class=&quot;text-gray-500&quot;&gt;USD&lt;/span&gt;
-                                    &lt;/div&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;div class=&quot;inline-flex items-center px-4 rounded-s border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        &lt;span class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;http://&lt;/span&gt;
-                                    &lt;/div&gt;
-                                    &lt;input type=&quot;text&quot; name=&quot;input-with-add-on-url&quot; id=&quot;input-with-add-on-url&quot; class=&quot;form-input rounded-s-none&quot; placeholder=&quot;www.example.com&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;div class=&quot;px-4 inline-flex items-center min-w-fit rounded-l-md border border-r-0 border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-700&quot;&gt;
-                                        &lt;span class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;$&lt;/span&gt;
-                                    &lt;/div&gt;
-                                    &lt;div class=&quot;px-4 inline-flex items-center min-w-fit border border-r-0 border-gray-200 bg-gray-50 dark:bg-gray-700 dark:border-gray-700&quot;&gt;
-                                        &lt;span class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;0.00&lt;/span&gt;
-                                    &lt;/div&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;leading-multiple-add-on&quot; name=&quot;inline-add-on&quot; class=&quot;form-input rounded-s-none&quot; placeholder=&quot;www.example.com&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;span class=&quot;inline-flex items-center px-4 rounded-s border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        &lt;span class=&quot;text-sm text-gray-500 dark:text-gray-400&quot;&gt;http://&lt;/span&gt;
-                                    &lt;/span&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;trailing-button-add-on-with-leading-and-trailing&quot; name=&quot;trailing-button-add-on-with-leading-and-trailing&quot; class=&quot;form-input rounded-none&quot;&gt;
-                                    &lt;button type=&quot;button&quot; class=&quot;inline-flex items-center px-4 rounded-e bg-primary text-gray-100&quot;&gt;
-                                        &lt;svg class=&quot;h-4 w-4&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
-                                            &lt;path d=&quot;M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z&quot;&gt;
-                                        &lt;/svg&gt;
-                                    &lt;/button&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;relative flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;trailing-button-add-on-with-icon-and-button&quot; name=&quot;trailing-button-add-on-with-icon-and-button&quot; class=&quot;form-input ps-11&quot;&gt;
-                                    &lt;div class=&quot;absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 ps-4&quot;&gt;
-                                        &lt;svg class=&quot;h-4 w-4 text-gray-400&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;16&quot; height=&quot;16&quot; fill=&quot;currentColor&quot; viewBox=&quot;0 0 16 16&quot;&gt;
-                                            &lt;path d=&quot;M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z&quot;&gt;
-                                        &lt;/svg&gt;
-                                    &lt;/div&gt;
-                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-sm bg-primary text-white rounded-s-none&quot;&gt;Search&lt;/button&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-sm bg-primary text-white rounded-e-none&quot;&gt;
-                                        Button
-                                    &lt;/button&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;leading-button-add-on&quot; name=&quot;leading-button-add-on&quot; class=&quot;form-input&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex rounded-md shadow-sm&quot;&gt;
-                                    &lt;button type=&quot;button&quot; class=&quot;btn btn-sm bg-primary text-white rounded-e-none&quot;&gt;
-                                        Button
-                                    &lt;/button&gt;
-                                    &lt;button type=&quot;button&quot; class=&quot;-me-px py-2.5 px-4 inline-flex justify-center items-center gap-2 border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-primary transition-all text-sm dark:bg-gray-800 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white&quot;&gt;
-                                        Button
-                                    &lt;/button&gt;
-                                    &lt;input type=&quot;text&quot; id=&quot;leading-button-add-on-multiple-add-ons&quot; name=&quot;leading-button-add-on-multiple-add-ons&quot; class=&quot;form-input&quot;&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-
-                            &lt;div&gt;
-                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                &lt;div class=&quot;flex&quot;&gt;
-                                    &lt;div class=&quot;inline-flex items-center whitespace-nowrap px-3 rounded-s border border-e-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400&quot;&gt;
-                                        With textarea
-                                    &lt;/div&gt;
-                                    &lt;textarea rows=&quot;4&quot; class=&quot;form-textarea ltr:rounded-s-none rtl:rounded-e-none&quot;&gt;&lt;/textarea&gt;
-                                &lt;/div&gt;
-                            &lt;/div&gt;
-                        &lt;/div&gt;
-                    </code>
-                </pre>
-            </div>
         </div>
     </div> <!-- end card -->
 
@@ -1108,5 +952,5 @@
 @endsection
 
 @section('script')
-    @vite(['resources/js/pages/highlight.js'])
+    @vite(['resources/js/pages/highlight.js', 'resources/js/pages/form-select.js', 'resources/js/pages/form-flatpickr.js'])
 @endsection
