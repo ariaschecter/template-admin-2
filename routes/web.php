@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::prefix('admin')->name('admin.')->middleware('language')->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('log', 'log')->name('log');
+        Route::get('component', 'component')->name('component');
+        Route::get('lang/{lang}', 'lang')->name('lang');
     });
 });
 
