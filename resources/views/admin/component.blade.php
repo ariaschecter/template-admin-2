@@ -40,75 +40,35 @@
 				<code class="text-primary">color</code>.
 			</p>
 
-			<div class="grid lg:grid-cols-3 gap-6">
+			<div class="grid lg:grid-cols-2 gap-6">
 
-				<x-form.input name="acielana_arlana" :value="old('Acielana')" :readonly></x-form.input>
+                <form action="" method="post">
+                    @csrf
+                    <x-form.input name="acielana_arlana"></x-form.input>
+                    <x-form.input name="email" type="email"></x-form.input>
+                    <x-form.input name="password" type="password"></x-form.input>
+                    <x-form.input name="date" type="date"></x-form.input>
+                    <x-form.input name="month" type="month"></x-form.input>
+                    <x-form.input name="time" type="time"></x-form.input>
+                    <x-form.input name="week" type="week"></x-form.input>
+                    <x-form.input name="color" type="color"></x-form.input>
 
-				<div>
-					<label for="example-email" class="text-gray-800 text-sm font-medium inline-block mb-2">Email</label>
-					<input type="email" id="example-email" name="example-email" class="form-input" placeholder="Email">
-				</div>
+                    <div>
+                        <label for="option" class="text-gray-800 text-sm font-medium inline-block mb-2">Input Select</label>
+                        <select class="form-select" multiple id="option" name="option[]">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
 
-				<div>
-					<label for="example-password" class="text-gray-800 text-sm font-medium inline-block mb-2">Password</label>
-					<input type="password" id="example-password" class="form-input" value="password">
-				</div>
+                    <button type="submit">Submit</button>
 
-				<div>
-					<label for="example-palaceholder" class="text-gray-800 text-sm font-medium inline-block mb-2">Placeholder</label>
-					<input type="text" id="example-palaceholder" class="form-input" placeholder="placeholder">
-				</div>
+                </form>
 
-				<div>
-					<label for="example-readonly" class="text-gray-800 text-sm font-medium inline-block mb-2">Readonly</label>
-					<input type="text" id="example-readonly" class="form-input" readonly="" value="Readonly value">
-				</div>
 
-				<div>
-					<label for="example-disable" class="text-gray-800 text-sm font-medium inline-block mb-2">Disabled</label>
-					<input type="text" class="form-input" id="example-disable" disabled="" value="Disabled value">
-				</div>
-
-				<div>
-					<label for="example-date" class="text-gray-800 text-sm font-medium inline-block mb-2">Date</label>
-					<input class="form-input" id="example-date" type="date" name="date">
-				</div>
-
-				<div>
-					<label for="example-month" class="text-gray-800 text-sm font-medium inline-block mb-2">Month</label>
-					<input class="form-input" id="example-month" type="month" name="month">
-				</div>
-
-				<div>
-					<label for="example-time" class="text-gray-800 text-sm font-medium inline-block mb-2">Time</label>
-					<input class="form-input" id="example-time" type="time" name="time">
-				</div>
-
-				<div>
-					<label for="example-week" class="text-gray-800 text-sm font-medium inline-block mb-2">Week</label>
-					<input class="form-input" id="example-week" type="week" name="week">
-				</div>
-
-				<div>
-					<label for="example-number" class="text-gray-800 text-sm font-medium inline-block mb-2">Number</label>
-					<input class="form-input" id="example-number" type="number" name="number">
-				</div>
-
-				<div>
-					<label for="example-color" class="text-gray-800 text-sm font-medium inline-block mb-2">Color</label>
-					<input class="form-input h-10" id="example-color" type="color" name="color" value="#1E85FF">
-				</div>
-
-				<div>
-					<label for="example-select" class="text-gray-800 text-sm font-medium inline-block mb-2">Input Select</label>
-					<select class="form-select" id="example-select">
-						<option>1</option>
-						<option>2</option>
-						<option>3</option>
-						<option>4</option>
-						<option>5</option>
-					</select>
-				</div>
 
 				<div>
 					<label for="example-multiselect" class="text-gray-800 text-sm font-medium inline-block mb-2">Multiple
@@ -123,97 +83,6 @@
 				</div>
 			</div>
 
-
-			<div id="FormInputsHtml" class="hidden w-full overflow-hidden transition-[height] duration-300">
-				<pre class="language-html h-56">
-                                    <code>
-                                        &lt;div class=&quot;grid lg:grid-cols-3 gap-6&quot;&gt;
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;simpleinput&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Text&lt;/label&gt;
-                                                &lt;input type=&quot;text&quot; id=&quot;simpleinput&quot; class=&quot;form-input&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-email&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Email&lt;/label&gt;
-                                                &lt;input type=&quot;email&quot; id=&quot;example-email&quot; name=&quot;example-email&quot; class=&quot;form-input&quot; placeholder=&quot;Email&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-password&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Password&lt;/label&gt;
-                                                &lt;input type=&quot;password&quot; id=&quot;example-password&quot; class=&quot;form-input&quot; value=&quot;password&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-palaceholder&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Placeholder&lt;/label&gt;
-                                                &lt;input type=&quot;text&quot; id=&quot;example-palaceholder&quot; class=&quot;form-input&quot; placeholder=&quot;placeholder&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-readonly&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Readonly&lt;/label&gt;
-                                                &lt;input type=&quot;text&quot; id=&quot;example-readonly&quot; class=&quot;form-input&quot; readonly=&quot;&quot; value=&quot;Readonly value&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-disable&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Disabled&lt;/label&gt;
-                                                &lt;input type=&quot;text&quot; class=&quot;form-input&quot; id=&quot;example-disable&quot; disabled=&quot;&quot; value=&quot;Disabled value&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-date&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Date&lt;/label&gt;
-                                                &lt;input class=&quot;form-input&quot; id=&quot;example-date&quot; type=&quot;date&quot; name=&quot;date&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-month&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Month&lt;/label&gt;
-                                                &lt;input class=&quot;form-input&quot; id=&quot;example-month&quot; type=&quot;month&quot; name=&quot;month&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-time&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Time&lt;/label&gt;
-                                                &lt;input class=&quot;form-input&quot; id=&quot;example-time&quot; type=&quot;time&quot; name=&quot;time&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-week&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Week&lt;/label&gt;
-                                                &lt;input class=&quot;form-input&quot; id=&quot;example-week&quot; type=&quot;week&quot; name=&quot;week&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-number&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Number&lt;/label&gt;
-                                                &lt;input class=&quot;form-input&quot; id=&quot;example-number&quot; type=&quot;number&quot; name=&quot;number&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-color&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Color&lt;/label&gt;
-                                                &lt;input class=&quot;form-input h-10&quot; id=&quot;example-color&quot; type=&quot;color&quot; name=&quot;color&quot; value=&quot;#1E85FF&quot;&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-select&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Input Select&lt;/label&gt;
-                                                &lt;select class=&quot;form-select&quot; id=&quot;example-select&quot;&gt;
-                                                    &lt;option&gt;1&lt;/option&gt;
-                                                    &lt;option&gt;2&lt;/option&gt;
-                                                    &lt;option&gt;3&lt;/option&gt;
-                                                    &lt;option&gt;4&lt;/option&gt;
-                                                    &lt;option&gt;5&lt;/option&gt;
-                                                &lt;/select&gt;
-                                            &lt;/div&gt;
-
-                                            &lt;div&gt;
-                                                &lt;label for=&quot;example-multiselect&quot; class=&quot;text-gray-800 text-sm font-medium inline-block mb-2&quot;&gt;Multiple
-                                                    Select&lt;/label&gt;
-                                                &lt;select id=&quot;example-multiselect&quot; multiple class=&quot;form-input&quot;&gt;
-                                                    &lt;option&gt;1&lt;/option&gt;
-                                                    &lt;option&gt;2&lt;/option&gt;
-                                                    &lt;option&gt;3&lt;/option&gt;
-                                                    &lt;option&gt;4&lt;/option&gt;
-                                                    &lt;option&gt;5&lt;/option&gt;
-                                                &lt;/select&gt;
-                                            &lt;/div&gt;
-                                        &lt;/div&gt;
-                                    </code>
-                                </pre>
-			</div>
 		</div>
 	</div>
 	<!-- end card -->
@@ -281,7 +150,7 @@
 
 				<div>
 					<div class="sm:flex rounded-md shadow-sm">
-						<input type="text" class="form-input rounded-e-none">
+						<input type="text" value="first" class="form-input rounded-e-none">
 						<input type="text" class="form-input rounded-s-none">
 						<span class="inline-flex items-center whitespace-nowrap px-4 rounded-e border border-s-0 border-gray-200 bg-gray-50 text-gray-500 dark:bg-gray-700 dark:border-gray-700 dark:text-gray-400">First and last name</span>
 					</div>

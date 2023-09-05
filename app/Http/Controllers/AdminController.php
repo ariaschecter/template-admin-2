@@ -21,6 +21,20 @@ class AdminController extends Controller
         return view('admin.component');
     }
 
+    public function store(Request $request) {
+        dd($request->option);
+        $request->validate([
+            'acielana_arlana' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'date' => 'required',
+            'month' => 'required',
+            'time' => 'required',
+            'week' => 'required',
+            'color' => 'required',
+        ]);
+    }
+
     public function lang($lang) {
         if (array_key_exists($lang, Config::get('languages'))) {
             Session::put('applocale', $lang);

@@ -20,6 +20,7 @@ Route::prefix('admin')->name('admin.')->middleware('language')->group(function (
         Route::get('/', fn()=>view('index'))->name('index');
         Route::get('log', 'log')->name('log');
         Route::get('component', 'component')->name('component');
+        Route::post('component', 'store');
         Route::get('lang/{lang}', 'lang')->name('lang');
     });
 });
