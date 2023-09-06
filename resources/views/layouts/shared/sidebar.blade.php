@@ -36,9 +36,9 @@
             <li class="menu-title">Apps</li>
 
             <li class="menu-item">
-                <a href="{{ route('second', ['apps', 'calendar']) }}" class="menu-link">
+                <a href="{{ route('admin.component') }}" class="menu-link">
                     <span class="menu-icon"><i class="mgc_calendar_line"></i></span>
-                    <span class="menu-text"> Calendar </span>
+                    <span class="menu-text"> Component </span>
                 </a>
             </li>
 

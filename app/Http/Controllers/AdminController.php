@@ -25,12 +25,12 @@ class AdminController extends Controller
         dd($request);
         $request->validate([
             'acielana_arlana' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'date' => 'required',
-            'month' => 'required',
-            'time' => 'required',
-            'week' => 'required',
+            'basic' => 'required',
+            'humanfd' => 'required|email',
+            'datetime' => 'required',
+            'multiple' => 'required',
+            'range' => 'required',
+            'timepicker' => 'required',
             'color' => 'required',
         ]);
     }

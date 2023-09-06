@@ -1,12 +1,8 @@
 @extends('layouts.vertical', ['title' => __('Dashboard'), 'sub_title' => 'Menu', 'mode' => $mode ?? '', 'demo' => $demo ?? ''])
 
 @section('css')
-    @vite(['
-    node_modules/nice-select2/dist/css/nice-select2.css',
-    'node_modules/flatpickr/dist/flatpickr.min.css',
-    'node_modules/@simonwep/pickr/dist/themes/classic.min.css',
-    'node_modules/@simonwep/pickr/dist/themes/monolith.min.css',
-    'node_modules/@simonwep/pickr/dist/themes/nano.min.css',
+    @vite([
+    'node_modules/nice-select2/dist/css/nice-select2.css',
     ])
 @endsection
 
@@ -31,71 +27,12 @@
 			</div>
 		</div>
 		<div class="p-6">
-			<p class="text-gray-400 mb-4">
-				Most common form control, text-based input fields. Includes support for all HTML5
-				                                types:
-				<code class="text-primary">text</code>,
-				<code class="text-primary">password</code>,
-				<code class="text-primary">datetime</code>,
-				<code class="text-primary">datetime-local</code>,
-				<code class="text-primary">date</code>,
-				<code class="text-primary">month</code>,
-				<code class="text-primary">time</code>,
-				<code class="text-primary">week</code>,
-				<code class="text-primary">number</code>,
-				<code class="text-primary">email</code>,
-				<code class="text-primary">url</code>,
-				<code class="text-primary">search</code>,
-				<code class="text-primary">tel</code>, and
-				<code class="text-primary">color</code>.
-			</p>
+			<div class="grid lg:grid-cols-1 gap-6">
 
-			<div class="grid lg:grid-cols-2 gap-6">
-
-                <form action="" method="post">
+                <form action="" method="post" enctype="multipart/form-data">
                     @csrf
-                    <x-form.picker name="basic" type="basic" />
-                    <x-form.picker name="humanfd" type="humanfd" />
-                    <x-form.picker name="datetime" type="datetime" />
-                    <x-form.picker name="multiple" type="multiple" />
-                    <x-form.picker name="range" type="range" />
-                    <x-form.picker name="timepicker" type="timepicker" />
-                    {{-- <x-form.input name="acielana_arlana"></x-form.input>
-                    <x-form.input name="email" type="email"></x-form.input>
-                    <x-form.input name="password" type="password"></x-form.input>
-                    <x-form.input name="date" type="date"></x-form.input>
-                    <x-form.input name="month" type="month"></x-form.input>
-                    <x-form.input name="time" type="time"></x-form.input>
-                    <x-form.input name="week" type="week"></x-form.input>
-                    <x-form.input name="color" type="color"></x-form.input> --}}
-
-                    {{-- <x-form.label name="Multiple" />
-                    <x-form.select.multiple name="array[]">
-                        <option value="1">ahskdbsad</option>
-                        <option value="2">aria</option>
-                        <option value="3">maulana</option>
-                        <option value="4">mahendra</option>
-                    </x-form.select.multiple>
-
-                    <x-form.label name="Single" />
-                    <x-form.select.search name="single">
-                        <option value="1">ahskdbsad</option>
-                        <option value="2">aria</option>
-                        <option value="3">maulana</option>
-                        <option value="4">mahendra</option>
-                    </x-form.select.search> --}}
-
-                    {{-- <div>
-                        <label for="option" class="text-gray-800 text-sm font-medium inline-block mb-2">Input Select</label>
-                        <select class="form-select" multiple id="option" name="option[]">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div> --}}
-
+                    <x-form.input name="ari" type="file" />
+                    <x-form.textarea name="arlana" />
                     <button type="submit">Submit</button>
 
                 </form>
@@ -952,5 +889,8 @@
 @endsection
 
 @section('script')
-    @vite(['resources/js/pages/highlight.js', 'resources/js/pages/form-select.js', 'resources/js/pages/form-flatpickr.js'])
+    @vite([
+        'resources/js/pages/highlight.js',
+        'resources/js/pages/form-select.js',
+        ])
 @endsection
