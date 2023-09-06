@@ -25,9 +25,11 @@ Route::prefix('admin')->name('admin.')->middleware('language')->group(function (
     });
 });
 
-Route::get('/', fn()=>view('index'))->name('index');
-Route::get('/', fn()=>view('index'))->name('any');
+Route::middleware('language')->group(function () {
+    Route::get('/', fn()=>view('index'))->name('index');
+    Route::get('/', fn()=>view('index'))->name('any');
 Route::get('/{first}/{second}', fn()=>view('index'))->name('second');
+});
 
 
 
