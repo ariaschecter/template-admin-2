@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone_number'
     ];
 
     /**
@@ -47,7 +48,8 @@ class User extends Authenticatable
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults();
+        return LogOptions::defaults()
+        ->logOnly(['name', 'email', 'password', 'is_admin']);
         // Chain fluent methods for configuration options
     }
 }
