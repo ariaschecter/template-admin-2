@@ -73,7 +73,7 @@
                 <ul class="sub-menu hidden">
                     <li class="menu-item">
                         <a href="{{ route('second', ['project', 'list']) }}" class="menu-link">
-                            <span class="menu-text">List</span>
+                            <span class="menu-text">List ahjsd jhsa djhas dhsvdas jhsvadj asjhdsv</span>
                         </a>
                     </li>
                     <li class="menu-item">
