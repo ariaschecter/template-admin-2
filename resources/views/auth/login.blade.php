@@ -17,10 +17,12 @@
             <div class="2xl:w-1/4 lg:w-1/3 md:w-1/2 w-full">
                 <div class="card overflow-hidden sm:rounded-md rounded-none">
                     <div class="p-6">
-                        <a href="{{ route('admin.index') }}" class="block mb-8">
+                        <a href="{{ route('index') }}" class="block mb-8">
                             <img class="h-6 block dark:hidden" src="/images/logo-dark.png" alt="">
                             <img class="h-6 hidden dark:block" src="/images/logo-light.png" alt="">
                         </a>
+
+                        <x-auth-session-status class="mb-4" :status="session('status')" />
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

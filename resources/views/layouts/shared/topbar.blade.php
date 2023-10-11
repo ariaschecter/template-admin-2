@@ -9,7 +9,7 @@
     </button>
 
     <!-- Topbar Brand Logo -->
-    <a href="{{ route('any', 'index') }}" class="logo-box">
+    <a href="{{ route('index') }}" class="logo-box">
         <!-- Light Brand Logo -->
         <div class="logo-light">
             <img src="/images/logo-light.png" class="logo-lg h-6" alt="Light logo">
@@ -89,15 +89,18 @@
                 <i class="mgc_task_2_line  me-2"></i>
                 <span>Kanban</span>
             </a>
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route('second', ['auth', 'login']) }}">
+            <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route('index') }}">
                 <i class="mgc_lock_line  me-2"></i>
                 <span>Lock Screen</span>
             </a>
             <hr class="my-2 -mx-2 border-gray-200 dark:border-gray-700">
-            <a class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route('logout') }}">
-                <i class="mgc_exit_line  me-2"></i>
-                <span>Log Out</span>
-            </a>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <div class="flex items-center py-2 px-3 rounded-md text-sm text-gray-800 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300" href="{{ route('logout') }}">
+                    <button type="submit"><i class="mgc_exit_line  me-2"></i> Log Out</button>
+                </div>
+            </form>
         </div>
     </div>
 </header>

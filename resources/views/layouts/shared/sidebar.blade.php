@@ -1,7 +1,7 @@
 <div class="app-menu">
 
     <!-- Sidenav Brand Logo -->
-    <a href="{{ route('any', 'index') }}" class="logo-box">
+    <a href="{{ route('index') }}" class="logo-box">
         <!-- Light Brand Logo -->
         <div class="logo-light">
             <img src="/images/logo-light.png" class="logo-lg h-6" alt="Light logo">
@@ -27,7 +27,7 @@
             <li class="menu-title">Menu</li>
 
             <li class="menu-item">
-                <a href="{{ route('any', 'index') }}" class="menu-link">
+                <a href="{{ route('index') }}" class="menu-link">
                     <span class="menu-icon"><i class="mgc_home_3_line"></i></span>
                     <span class="menu-text"> Dashboard </span>
                 </a>
